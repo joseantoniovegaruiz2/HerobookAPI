@@ -23,7 +23,7 @@ public class HeroBookApiTest {
     MockMvc mockMvc;
     @Autowired
     ObjectMapper objectMapper;
-//
+
 //    When I view all the heros
 //    Then I can see names of all heros
     @Test
@@ -36,13 +36,10 @@ public class HeroBookApiTest {
         mockMvc.perform(post("/HeroApi/Heroes").contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(hero))
                 ).andExpect(status().isCreated());
+
         mockMvc.perform(get("/HeroApi/Heroes")
         ).andExpect(status().isOk())
                 .andExpect(jsonPath("length()").value(1))
                 .andExpect(jsonPath("[0].heroName").value("Hero Monkey King"));
-
-
     }
-
-
 }

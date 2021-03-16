@@ -16,15 +16,15 @@ public class HeroController {
         this.listOfHeroes = new ArrayList<>();
     }
 
-
     @PostMapping("/Heroes")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addHeroes(@RequestBody Hero hero){
+    public void addHeroes(@RequestBody Hero hero) {
+        
         this.listOfHeroes.add(hero);
+    }
 
-}
     @GetMapping("/Heroes")
-    public List<Hero> getHeroes(){
+    public List<Hero> getHeroes() {
         return listOfHeroes;
     }
 
