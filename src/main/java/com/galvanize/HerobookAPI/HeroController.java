@@ -9,12 +9,12 @@ import java.util.List;
 @RestController
 //@RequestMapping("/HeroApi")
 public class HeroController {
-    List<Hero> listOfHeroes;
+    List<HeroDto> listOfHeroes;
 
-    ServiceBookHero serviceBookHero;
+    BookHeroService bookHeroService;
 
-    public HeroController(ServiceBookHero serviceBookHero) {
-        this.serviceBookHero = serviceBookHero;
+    public HeroController(BookHeroService bookHeroService) {
+        this.bookHeroService = bookHeroService;
     }
 //
 //    public HeroController() {
@@ -24,14 +24,14 @@ public class HeroController {
 
     @PostMapping("heroes")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addHeroes(@RequestBody Hero hero){
-   //     this.listOfHeroes.add(hero);
-        serviceBookHero.create(hero);
+    public void addHeroes(@RequestBody HeroDto hero){
+        this.listOfHeroes.add(hero);
+        bookHeroService.create(hero);
 
 
 }
     @GetMapping("heroes")
-    public List<Hero> getHeroes(){
+    public List<HeroDto> getHeroes(){
         return listOfHeroes;
     }
 
