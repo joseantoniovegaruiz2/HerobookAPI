@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Objects;
 
 @Entity
 @EqualsAndHashCode
@@ -165,5 +166,18 @@ public class Hero {
 
     public void setStory(String story) {
         this.story = story;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Hero hero = (Hero) o;
+        return Float.compare(hero.height, height) == 0 && Float.compare(hero.weight, weight) == 0 && intelligence == hero.intelligence && strength == hero.strength && power == hero.power && speed == hero.speed && agility == hero.agility && heroName.equals(hero.heroName) && image.equals(hero.image) && realName.equals(hero.realName) && specialPower.equals(hero.specialPower) && description.equals(hero.description) && story.equals(hero.story);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(heroName, image, realName, height, weight, specialPower, intelligence, strength, power, speed, agility, description, story);
     }
 }

@@ -33,15 +33,18 @@ public class HeroAPiTestH2RepositoryTest {
     @Test
     void fetchHero()
     {
-        Hero hero = new Hero("Hero Monkey King");
+        Hero hero = new Hero("Hero Monkey King"
+        ,"Image", "realName", 5.5f,50f, "specialPower",
+                8,8,10,60,5,
+                "description","story"
+        );
         when(mockBookHeroRepository.findById(1L))
                 .thenReturn(Optional.of(hero));
         // E Exercise
         Optional<Hero> actual = subject.fetchOne(1L);
         // A Assert
-        assertThat(actual.get().heroName).isEqualTo(
-                hero.getHeroName()
-        );
+        assertThat(actual.get().equals(hero));
+
     }
 
 }
