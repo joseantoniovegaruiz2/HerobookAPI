@@ -23,10 +23,18 @@ public class HeroAPiTestH2RepositoryTest {
 
     @Test
     void create() {
-        Hero heroDto = new Hero("Hero Monkey King");
+        Hero heroDto = new Hero("Hero Monkey King"
+                ,"Image", "realName", 5.5f,50f,
+                "specialPower",
+                8,8,10,60,5,
+                "description","story");
         subject.create(heroDto);
         verify(mockBookHeroRepository).save(
-                new Hero("Hero Monkey King")
+                new Hero("Hero Monkey King"
+                        ,"Image", "realName", 5.5f,50f,
+                        "specialPower",
+                        8,8,10,60,5,
+                        "description","story")
         );
     }
 

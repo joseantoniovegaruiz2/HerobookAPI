@@ -16,10 +16,13 @@ public class BookHeroService {
 
 
 
-    public void create(Hero heroDto) {
+    public void create(Hero hero) {
 
         bookHeroRepository.save(
-                new Hero(heroDto.getHeroName())
+                new Hero(hero.heroName, hero.image, hero.realName, hero.height,
+                        hero.weight, hero.specialPower, hero.intelligence,
+                        hero.strength, hero.power, hero.speed, hero.agility,
+                        hero.description, hero.story)
         );
     }
 
