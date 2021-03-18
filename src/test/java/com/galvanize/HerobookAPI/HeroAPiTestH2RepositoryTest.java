@@ -34,17 +34,13 @@ public class HeroAPiTestH2RepositoryTest {
     void fetchHero()
     {
         Hero hero = new Hero("Hero Monkey King");
-        when(mockBookHeroRepository.findAll()).thenReturn(
-                Arrays.asList(
-                        hero,
-                        new Hero("Hero Lion King")
-                )
-        );
+        when(mockBookHeroRepository.findById(1L))
+                .thenReturn(Optional.of(hero));
         // E Exercise
         Optional<Hero> actual = subject.fetchOne(1L);
         // A Assert
-        assertThat(actual).isEqualTo(
-                hero
+        assertThat(actual.get().heroName).isEqualTo(
+                hero.getHeroName()
         );
     }
 
