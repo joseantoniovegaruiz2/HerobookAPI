@@ -3,6 +3,8 @@ package com.galvanize.HerobookAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookHeroService {
 
@@ -14,10 +16,14 @@ public class BookHeroService {
 
 
 
-    public void create(HeroDto heroDto) {
+    public void create(Hero heroDto) {
 
         bookHeroRepository.save(
                 new Hero(heroDto.getHeroName())
         );
+    }
+
+    public List<Hero> fetchOne(Hero hero) {
+        return null;
     }
 }
