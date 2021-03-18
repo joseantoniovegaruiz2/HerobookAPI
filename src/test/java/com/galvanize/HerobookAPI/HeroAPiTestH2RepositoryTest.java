@@ -8,6 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.verify;
@@ -39,16 +40,11 @@ public class HeroAPiTestH2RepositoryTest {
                         new Hero("Hero Lion King")
                 )
         );
-
         // E Exercise
-        List<Hero> actual = subject.fetchOne(hero);
-
+        Optional<Hero> actual = subject.fetchOne(1L);
         // A Assert
         assertThat(actual).isEqualTo(
-                Arrays.asList(
-                        new Hero("Hero Frog King"),
-                        new Hero("Hero Snake King")
-                )
+                hero
         );
     }
 

@@ -3,7 +3,7 @@ package com.galvanize.HerobookAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookHeroService {
@@ -23,7 +23,8 @@ public class BookHeroService {
         );
     }
 
-    public List<Hero> fetchOne(Hero hero) {
-        return null;
+    public Optional<Hero> fetchOne(Long id) {
+
+        return bookHeroRepository.findById(id);
     }
 }
