@@ -23,4 +23,10 @@ public class HeroAPiTestH2RepositoryTest {
         );
     }
 
+    @Test
+    void fetchHero()
+    {
+
+    }
+
 }
